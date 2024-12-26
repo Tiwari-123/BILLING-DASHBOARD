@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+
+import Addcustomer from './admin/Addcustomer';
+import Additem from './admin/Additem';
+import Customers from './admin/Customers';
+import EditCustomer from './admin/EditCustomer';
+import EditItems from './admin/EditItems';
+import Item from './admin/Item';
+import Main from './admin/Main';
 import './App.css';
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+        <Route exact path="/" element={<Main />} /> 
+         <Route exact path="/customer" element={<Customers/>} /> 
+         <Route exact path="/addcustomer" element={<Addcustomer/>} /> 
+         <Route exact path="/item" element={<Item/>} /> 
+         <Route exact path="/additem" element={<Additem/>} /> 
+         <Route exact path="/editCustomer/:customerId" element={<EditCustomer/>} /> 
+         <Route exact path="/editItems/:itemId" element={<EditItems/>} /> 
+        </Routes>
+      </Router>
     </div>
   );
 }
